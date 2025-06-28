@@ -5,9 +5,7 @@
 }
 .main {
     display: flex;
-    align-items: center;
-    padding: 24px;
+    flex-direction: column;
+    padding: 50px;
     gap: 24px;
-    background-color: var(--color-gray-100);
-
 }
