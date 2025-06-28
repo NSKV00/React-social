@@ -1,0 +1,33 @@
+.header {
+    padding: 24px;
+    background-color: var(--color-gray-400);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header nav {
+    display: flex;
+    gap: 16px;
+  
+}
+.header nav a {
+    color: var(--color-secondary);
+}
+.fieldset {
+    position: relative;
+    border: none;
+}
+.fieldset input {
+        padding-left: 36px;
+}
+.icon {
+    position: absolute;
+    left: 8px;
+    top: 12px;
+}
+@media (min-width:412px){
+    .header {
+        flex-direction: row; 
+        gap: 12px;
+    }
+}
