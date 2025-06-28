@@ -25,10 +25,10 @@ export const Hheader =({hiddenAdd,hiddenCadastro,hiddenConfig,hiddenHome,hiddenL
     
     return <header className={Hstyle.Hheader}>
         <h1 className={Hstyle.h1}>The Script</h1>
-        <fieldset className={Hstyle.pesquisa}>
+        {!hiddenConfig&&<fieldset className={Hstyle.pesquisa}>
             <Iconify icon="mi:search" className={Hstyle.lupa} />
             <input className={Hstyle.I} type="text" placeholder="Pesquise aqui"/>
-        </fieldset>
+        </fieldset>}
 
         <nav className={Hstyle.nav}>
             {hiddenHome != "home" && <Link className={Hstyle.Link} to={"/"}>
