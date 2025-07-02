@@ -1,22 +1,18 @@
+import { useParams } from "react-router-dom"
+// // import style from "../style.module.css"
+// import style from "../feed/style.module.css"
 import { useEffect, useState } from "react"
 import style from "./style.module.css"
 import { apiController } from "../../controller/api.controller"
 import { useNavigate } from "react-router-dom"
 
-interface usuarioProps {
-    idUsuario?: string
-}
+export const Usuario=()=>{
+    const params = useParams()
 
-export const usuario=({idUsuario}:usuarioProps)=>{
-    const navigate = useNavigate()
-
-
-
-
-return <section className={style.usuario}>
-        {
-            loading && <p>Carregando</p>
-        }
-
-  </section>
+    return <>
+    
+        <section className={style.profile}>
+            <p>{params.id}</p>
+        </section>
+    </>
 }

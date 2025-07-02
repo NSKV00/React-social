@@ -1,17 +1,21 @@
 
+import { Hheader } from "../../components/header/Header"
 import style from "./Lstyle.module.css"
-import Cstyle from "../cadastro/Cstyle.module.css"
 import { apiController } from "../../controller/api.controller"
 import {toast} from "react-toastify"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { createLoginSchema, type iCreateLogin } from "../../schemas/login.schemas"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Input } from "../../components/input/Input"
+import { useContext } from "react"
+import { MainContext } from "../../context/MainContext"
 
 
 export const Login=()=>{
     const navigate = useNavigate()
+    const { setUser } = useContext(MainContext)
+    
     const {
         register,
         handleSubmit,
@@ -32,6 +36,7 @@ export const Login=()=>{
        if(res.data.token){
             toast.success("Sucesso, login")
             localStorage.setItem("token",res.data.token)
+            setUser(res.data)
             setTimeout(() => {
                 navigate("/")
             }, 3000);
@@ -43,7 +48,7 @@ export const Login=()=>{
         
     }
     return <>
-    {/* <Header/> */}
+    <Hheader/>
     
     <main className={style.main}>
         <form className={style.form} onSubmit={handleSubmit(fazerLogin)}>
@@ -54,8 +59,6 @@ export const Login=()=>{
                 label="Senha" type="password" placeholder="****" register={register("password")}
             />
             <button type="submit">Login</button>
-            <h4 className={Cstyle.h5}>Não está cadastrado</h4>
-            <Link className={Cstyle.login} to={"/cadastro"}>Cadastrar-se</Link>
         </form>
     </main>
     </>

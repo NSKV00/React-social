@@ -93,3 +93,9 @@ header img:hover {
     transform: scale(1.025);
     z-index: 5;
 } */
+
+@media (max-width: 992px){
+    .Hheader {
+        flex-direction: column;
+    }
+}
